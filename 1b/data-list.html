@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Data List</title>
+</head>
+<body>
+  <h1>User Data List</h1>
+  <ul id="userList"></ul>
+
+  <script>
+    // Retrieve user data from local storage
+    const userList = JSON.parse(localStorage.getItem('userList')) || [];
+
+    // Display user data list
+    const userListElement = document.getElementById('userList');
+    userList.forEach(user => {
+      const listItem = document.createElement('li');
+    listItem.textContent = `Name: ${user.name}, Email: ${user.email}`;
+      userListElement.appendChild(listItem);
+    });
+  </script>
+</body>
+</html>
